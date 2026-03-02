@@ -6,25 +6,20 @@ When you copy code from the Claude Code terminal, it often comes with extra lead
 
 ## Install
 
-Build the app bundle and open it:
-
 ```
-swiftc -o clipper ClipperApp.swift -framework AppKit
-cp clipper CCClipper.app/Contents/MacOS/clipper
-open CCClipper.app
+make install
 ```
 
-A scissors icon (✂️) appears in your menu bar. No terminal window.
+This builds `CCClipper.app`, copies it to `/Applications`, and launches it. A scissors icon appears in your menu bar.
 
-To have it start automatically, drag `CCClipper.app` into **System Settings → General → Login Items**.
+To have it start automatically, add it in **System Settings → General → Login Items**.
 
-## Build from scratch
+## Build & Run
 
 ```
-swiftc -o clipper ClipperApp.swift -framework AppKit
-mkdir -p CCClipper.app/Contents/MacOS
-cp clipper CCClipper.app/Contents/MacOS/clipper
-cp Info.plist CCClipper.app/Contents/Info.plist
+make          # build the .app bundle
+make run      # build and launch
+make clean    # remove build artifacts
 ```
 
 ## Usage
