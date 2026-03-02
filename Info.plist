@@ -8,6 +8,8 @@
     <string>com.mtesch.CCClipper</string>
     <key>CFBundleName</key>
     <string>CCClipper</string>
+    <key>CFBundleIconFile</key>
+    <string>CCClipper</string>
     <key>LSUIElement</key>
     <true/>
 </dict>
