@@ -6,18 +6,25 @@ When you copy code from the Claude Code terminal, it often comes with extra lead
 
 ## Install
 
-Download the `clipper` binary from this repo and put it somewhere in your PATH, or run it directly:
-
-```
-./clipper
-```
-
-A scissors icon (✂️) appears in your menu bar.
-
-## Build
+Build the app bundle and open it:
 
 ```
 swiftc -o clipper ClipperApp.swift -framework AppKit
+cp clipper CCClipper.app/Contents/MacOS/clipper
+open CCClipper.app
+```
+
+A scissors icon (✂️) appears in your menu bar. No terminal window.
+
+To have it start automatically, drag `CCClipper.app` into **System Settings → General → Login Items**.
+
+## Build from scratch
+
+```
+swiftc -o clipper ClipperApp.swift -framework AppKit
+mkdir -p CCClipper.app/Contents/MacOS
+cp clipper CCClipper.app/Contents/MacOS/clipper
+cp Info.plist CCClipper.app/Contents/Info.plist
 ```
 
 ## Usage
@@ -25,3 +32,5 @@ swiftc -o clipper ClipperApp.swift -framework AppKit
 1. Copy text from Claude Code terminal
 2. Click the scissors icon in your menu bar → **Clip Annoying Whitespace**
 3. Paste the cleaned-up text wherever you need it
+
+Only one instance can run at a time — launching a new one automatically stops the old one.
