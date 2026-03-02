@@ -5,7 +5,7 @@ let lockPath = NSHomeDirectory() + "/.clipper.lock"
 
 func acquireLock() {
     // Kill any existing instance holding the lock
-    let fd = open(lockPath, O_CREAT | O_WRONLY, 0o644)
+    let fd = open(lockPath, O_CREAT | O_WRONLY, 0o600)
     guard fd >= 0 else {
         fputs("CCClipper: failed to open lock file\n", stderr)
         exit(1)
